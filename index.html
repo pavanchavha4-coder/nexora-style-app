@@ -3,40 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="NEXORA STYLE - Men's Fashion Store">
   <title>NEXORA STYLE</title>
+
   <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./nexora-icon-192.png">
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f5f3ee;
       color: #171717;
     }
+
     .splash {
       position: fixed;
       inset: 0;
-      background: #111;
+      background: #000;
       color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 10;
-      transition: opacity .4s;
+      text-align: center;
     }
-    .splash h1 { letter-spacing: 5px; margin-bottom: 8px; }
-    .splash p { color: #c9aa68; letter-spacing: 3px; }
-    #shopSplash { display: none; background: #f5f3ee; color: #171717; }
-    #shopSplash p { color: #777; letter-spacing: 2px; }
+
+    .splash img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .splash h1 {
+      letter-spacing: 5px;
+      margin-bottom: 8px;
+    }
+
+    .splash p {
+      color: #c9aa68;
+      letter-spacing: 3px;
+    }
+
+    #shopSplash {
+      display: none;
+      background: #f5f3ee;
+      color: #171717;
+    }
+
+    #shopSplash p {
+      color: #777;
+      letter-spacing: 2px;
+    }
+
     header {
       background: #111;
       color: white;
       padding: 22px;
     }
-    header h2 { margin: 0; letter-spacing: 2px; }
-    header p { color: #c9aa68; margin-bottom: 0; }
+
+    header h2 {
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      color: #c9aa68;
+      margin-bottom: 0;
+    }
+
     nav {
       display: flex;
       justify-content: space-around;
@@ -44,17 +84,41 @@
       padding: 15px 5px;
       position: sticky;
       top: 0;
+      z-index: 5;
     }
-    nav a { color: #222; text-decoration: none; font-size: 14px; }
-    .hero { padding: 35px 20px; background: #e8e3d9; }
-    .hero h1 { font-size: 32px; margin: 0 0 10px; }
-    .products { padding: 20px; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    nav a {
+      color: #222;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 35px 20px;
+      background: #e8e3d9;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin: 0 0 10px;
+    }
+
+    .products {
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
     .item {
       background: white;
       padding: 12px;
       border-radius: 10px;
     }
+
     .photo {
       height: 130px;
       background: #dedbd5;
@@ -63,7 +127,11 @@
       font-size: 38px;
       border-radius: 8px;
     }
-    .item h3 { font-size: 15px; }
+
+    .item h3 {
+      font-size: 15px;
+    }
+
     .item button {
       background: #111;
       color: white;
@@ -72,23 +140,34 @@
       width: 100%;
       border-radius: 5px;
     }
-    footer { padding: 25px; background: #111; color: white; }
+
+    footer {
+      padding: 25px;
+      background: #111;
+      color: white;
+    }
   </style>
 </head>
+
 <body>
 
+  <!-- NEXORA COMPANY SPLASH -->
   <section class="splash" id="companySplash">
+    <img src="./nexora-icon-512.png" alt="NEXORA Logo">
     <h1>NEXORA</h1>
     <p>TECHNOLOGIES</p>
     <small>IDEAS TO IMPACT</small>
   </section>
 
+  <!-- SHOP SPLASH -->
   <section class="splash" id="shopSplash">
     <h1>NEXORA STYLE</h1>
     <p>WEAR BETTER • LIVE BOLDER</p>
   </section>
 
+  <!-- MAIN APP -->
   <main id="app" style="display:none">
+
     <header>
       <h2>NEXORA STYLE</h2>
       <p>WEAR BETTER • LIVE BOLDER</p>
@@ -108,31 +187,37 @@
 
     <section class="products" id="shop">
       <h2>Featured Collection</h2>
+
       <div class="grid">
+
         <div class="item">
           <div class="photo">👕</div>
           <h3>Classic T-Shirt</h3>
           <p>₹499</p>
           <button onclick="order('Classic T-Shirt',499)">Order</button>
         </div>
+
         <div class="item">
           <div class="photo">👔</div>
           <h3>Premium Shirt</h3>
           <p>₹899</p>
           <button onclick="order('Premium Shirt',899)">Order</button>
         </div>
+
         <div class="item">
           <div class="photo">🧥</div>
           <h3>Casual Jacket</h3>
           <p>₹1499</p>
           <button onclick="order('Casual Jacket',1499)">Order</button>
         </div>
+
         <div class="item">
           <div class="photo">👖</div>
           <h3>Denim Jeans</h3>
           <p>₹999</p>
           <button onclick="order('Denim Jeans',999)">Order</button>
         </div>
+
       </div>
     </section>
 
@@ -145,32 +230,39 @@
       <h3>Contact NEXORA STYLE</h3>
       <p>Demo Store • Contact details coming soon</p>
     </footer>
+
   </main>
 
   <script>
     function order(product, price) {
-      alert(product + " - ₹" + price + 
-        "\nDemo order. Shop WhatsApp number will be added later.");
+      alert(
+        product + " - ₹" + price +
+        "\nDemo order. Shop WhatsApp number will be added later."
+      );
     }
 
+    // Company splash: 1.5 seconds
     setTimeout(() => {
       document.getElementById("companySplash").style.display = "none";
       document.getElementById("shopSplash").style.display = "flex";
     }, 1500);
 
+    // Shop splash: next 1.5 seconds
     setTimeout(() => {
       document.getElementById("shopSplash").style.display = "none";
       document.getElementById("app").style.display = "block";
     }, 3000);
-  </script>if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js")
-      .catch(error => console.error("Service worker error:", error));
-  });
-}
-</script>
-  
 
+    // Service worker registration
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+          .catch(error =>
+            console.error("Service worker error:", error)
+          );
+      });
+    }
+  </script>
 
 </body>
-</html>
+  </html>
