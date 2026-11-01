@@ -1,25 +1,24 @@
+
 {
   "name": "NEXORA STYLE",
   "short_name": "NEXORA",
-  "description": "NEXORA Technologies Shopping App",
+  "description": "WEAR BETTER • LIVE BOLDER",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#080808",
+  "theme_color": "#080808",
   "icons": [
     {
       "src": "./nexora-icon-192-1.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
       "src": "./nexora-icon-512-1.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     }
   ]
 }
