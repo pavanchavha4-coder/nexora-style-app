@@ -14,23 +14,29 @@ body{font-family:Arial,sans-serif;background:#fff;color:#111}
 header{background:#000;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:23px;font-weight:900;letter-spacing:3px}
 header span{font-size:12px;letter-spacing:2px}
-.hero{background:#111;color:#fff;padding:55px 24px;text-align:center}
+.hero{background:#111;color:#fff;padding:50px 20px;text-align:center}
 .hero small{letter-spacing:4px;color:#bbb}
-.hero h1{font-size:38px;margin:18px 0;line-height:1.1}
+.hero h1{font-size:36px;margin:18px 0;line-height:1.1}
 .hero p{color:#ccc;font-size:14px}
-.hero button{margin-top:25px;background:#fff;color:#000;border:0;padding:14px 28px;font-weight:bold;letter-spacing:1px}
-section{padding:28px 18px}
-.heading{font-size:22px;font-weight:900;margin-bottom:18px}
+.hero button{margin-top:22px;background:#fff;color:#000;border:0;padding:14px 25px;font-weight:bold}
+section{padding:25px 16px}
+.heading{font-size:21px;font-weight:900;margin-bottom:18px}
 .categories{display:flex;gap:10px;overflow:auto}
-.category{background:#f1f1f1;padding:13px 19px;white-space:nowrap;font-size:13px;font-weight:bold}
-.products{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.product{border:1px solid #eee;padding-bottom:13px}
-.product img{width:100%;height:190px;object-fit:cover;background:#eee}
-.product h3{font-size:14px;margin:10px 9px 5px}
-.price{font-size:14px;font-weight:bold;margin:0 9px 10px}
-.product button{width:calc(100% - 18px);margin:0 9px;background:#000;color:#fff;border:0;padding:11px;font-weight:bold}
+.category{background:#eee;padding:13px 18px;white-space:nowrap;font-size:13px;font-weight:bold}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.product{border:1px solid #eee;padding-bottom:12px}
+.product img{width:100%;height:175px;object-fit:cover;background:#eee}
+.product h3{font-size:14px;margin:10px 8px 5px}
+.price{font-size:14px;font-weight:bold;margin:0 8px 10px}
+.product select{width:calc(100% - 16px);margin:0 8px 10px;padding:9px;border:1px solid #ddd;background:#fff}
+.product button{width:calc(100% - 16px);margin:0 8px;background:#000;color:#fff;border:0;padding:11px;font-weight:bold}
+.cart{background:#f5f5f5;padding:18px;margin:0 16px 25px}
+.cart h2{font-size:20px;margin-bottom:12px}
+.cart-item{padding:10px 0;border-bottom:1px solid #ddd;font-size:14px}
+.cart button{width:100%;padding:13px;background:#000;color:#fff;border:0;font-weight:bold;margin-top:12px}
+.remove{background:#777!important;margin-top:6px!important}
 .banner{background:#000;color:#fff;text-align:center;padding:35px 20px}
-.banner h2{font-size:25px;margin-bottom:10px}
+.banner h2{font-size:23px;margin-bottom:10px}
 .banner p{font-size:13px;color:#ccc}
 footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;letter-spacing:2px}
 </style>
@@ -47,9 +53,7 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;
 <small>NEW COLLECTION</small>
 <h1>WEAR BETTER.<br>LIVE BOLDER.</h1>
 <p>Style that speaks without saying a word.</p>
-<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
-EXPLORE COLLECTION
-</button>
+<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">EXPLORE COLLECTION</button>
 </div>
 
 <section>
@@ -68,35 +72,58 @@ EXPLORE COLLECTION
 <div class="products">
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="T-shirt">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="White T-shirt">
 <h3>Classic White T-Shirt</h3>
 <div class="price">₹599</div>
-<button onclick="order('Classic White T-Shirt','599')">ORDER NOW</button>
+<select id="size1">
+<option value="">Select Size</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
+</select>
+<button onclick="addCart('Classic White T-Shirt',599,'size1')">ADD TO CART</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600" alt="Black T-shirt">
 <h3>Premium Black T-Shirt</h3>
 <div class="price">₹699</div>
-<button onclick="order('Premium Black T-Shirt','699')">ORDER NOW</button>
+<select id="size2">
+<option value="">Select Size</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
+</select>
+<button onclick="addCart('Premium Black T-Shirt',699,'size2')">ADD TO CART</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?w=600" alt="Shirt">
 <h3>Casual Shirt</h3>
 <div class="price">₹999</div>
-<button onclick="order('Casual Shirt','999')">ORDER NOW</button>
+<select id="size3">
+<option value="">Select Size</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
+</select>
+<button onclick="addCart('Casual Shirt',999,'size3')">ADD TO CART</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600" alt="Jeans">
 <h3>Classic Denim Jeans</h3>
 <div class="price">₹1,299</div>
-<button onclick="order('Classic Denim Jeans','1299')">ORDER NOW</button>
+<select id="size4">
+<option value="">Select Size</option>
+<option>30</option><option>32</option><option>34</option><option>36</option>
+</select>
+<button onclick="addCart('Classic Denim Jeans',1299,'size4')">ADD TO CART</button>
 </div>
 
 </div>
 </section>
+
+<div class="cart" id="cart">
+<h2>YOUR CART 🛒</h2>
+<div id="cartItems">Your cart is empty.</div>
+<h3 id="total" style="margin-top:12px">Total: ₹0</h3>
+<button onclick="checkout()">CHECKOUT ON WHATSAPP</button>
+</div>
 
 <div class="banner">
 <h2>YOUR STYLE. YOUR IDENTITY.</h2>
@@ -110,14 +137,66 @@ POWERED BY NEXORA TECHNOLOGIES
 </footer>
 
 <script>
-function order(name,price){
-const phone="919209039080"; 
-// APNA NUMBER YAHAN DALO
-const message="Hello, I want to order "+name+" worth ₹"+price;
+const phone="919209039080"; // APNA WHATSAPP NUMBER DALO
+let cart=[];
+
+function addCart(name,price,sizeId){
+const size=document.getElementById(sizeId).value;
+
+if(!size){
+alert("Please select a size first!");
+return;
+}
+
+cart.push({name:name,price:price,size:size});
+showCart();
+alert("Product added to cart!");
+}
+
+function showCart(){
+const box=document.getElementById("cartItems");
+let total=0;
+
+if(cart.length===0){
+box.innerHTML="Your cart is empty.";
+}else{
+box.innerHTML="";
+cart.forEach((item,index)=>{
+total+=item.price;
+box.innerHTML+=`
+<div class="cart-item">
+${item.name} | Size: ${item.size} | ₹${item.price}
+<button class="remove" onclick="removeItem(${index})">REMOVE</button>
+</div>`;
+});
+}
+
+document.getElementById("total").innerText="Total: ₹"+total;
+}
+
+function removeItem(index){
+cart.splice(index,1);
+showCart();
+}
+
+function checkout(){
+if(cart.length===0){
+alert("Your cart is empty!");
+return;
+}
+
+let message="Hello, I want to place an order:%0A";
+let total=0;
+
+cart.forEach(item=>{
+message+="%0A"+item.name+" | Size: "+item.size+" | ₹"+item.price;
+total+=item.price;
+});
+
+message+="%0A%0ATotal: ₹"+total;
 window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(message),"_blank");
 }
 </script>
 
 </body>
-  </html>
-  
+</html>
