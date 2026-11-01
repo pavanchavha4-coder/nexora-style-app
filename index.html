@@ -1,268 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#000000">
-  <meta name="description" content="NEXORA STYLE - Men's Fashion Store">
-  <title>NEXORA STYLE</title>
-
-  <link rel="manifest" href="./manifest.json">
-  <link rel="icon" href="./nexora-icon-192.png">
-
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f3ee;
-      color: #171717;
-    }
-
-    .splash {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      text-align: center;
-    }
-
-    .splash img {
-      width: 120px;
-      height: 120px;
-      object-fit: contain;
-      margin-bottom: 20px;
-    }
-
-    .splash h1 {
-      letter-spacing: 5px;
-      margin-bottom: 8px;
-    }
-
-    .splash p {
-      color: #c9aa68;
-      letter-spacing: 3px;
-    }
-
-    #shopSplash {
-      display: none;
-      background: #f5f3ee;
-      color: #171717;
-    }
-
-    #shopSplash p {
-      color: #777;
-      letter-spacing: 2px;
-    }
-
-    header {
-      background: #111;
-      color: white;
-      padding: 22px;
-    }
-
-    header h2 {
-      margin: 0;
-      letter-spacing: 2px;
-    }
-
-    header p {
-      color: #c9aa68;
-      margin-bottom: 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-around;
-      background: white;
-      padding: 15px 5px;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-    }
-
-    nav a {
-      color: #222;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .hero {
-      padding: 35px 20px;
-      background: #e8e3d9;
-    }
-
-    .hero h1 {
-      font-size: 32px;
-      margin: 0 0 10px;
-    }
-
-    .products {
-      padding: 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .item {
-      background: white;
-      padding: 12px;
-      border-radius: 10px;
-    }
-
-    .photo {
-      height: 130px;
-      background: #dedbd5;
-      display: grid;
-      place-items: center;
-      font-size: 38px;
-      border-radius: 8px;
-    }
-
-    .item h3 {
-      font-size: 15px;
-    }
-
-    .item button {
-      background: #111;
-      color: white;
-      border: 0;
-      padding: 10px;
-      width: 100%;
-      border-radius: 5px;
-    }
-
-    footer {
-      padding: 25px;
-      background: #111;
-      color: white;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>NEXORA STYLE</title>
+<link rel="manifest" href="./manifest.json">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fff;color:#111}
+header{background:#000;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:23px;font-weight:900;letter-spacing:3px}
+header span{font-size:12px;letter-spacing:2px}
+.hero{background:#111;color:#fff;padding:55px 24px;text-align:center}
+.hero small{letter-spacing:4px;color:#bbb}
+.hero h1{font-size:38px;margin:18px 0;line-height:1.1}
+.hero p{color:#ccc;font-size:14px}
+.hero button{margin-top:25px;background:#fff;color:#000;border:0;padding:14px 28px;font-weight:bold;letter-spacing:1px}
+section{padding:28px 18px}
+.heading{font-size:22px;font-weight:900;margin-bottom:18px}
+.categories{display:flex;gap:10px;overflow:auto}
+.category{background:#f1f1f1;padding:13px 19px;white-space:nowrap;font-size:13px;font-weight:bold}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.product{border:1px solid #eee;padding-bottom:13px}
+.product img{width:100%;height:190px;object-fit:cover;background:#eee}
+.product h3{font-size:14px;margin:10px 9px 5px}
+.price{font-size:14px;font-weight:bold;margin:0 9px 10px}
+.product button{width:calc(100% - 18px);margin:0 9px;background:#000;color:#fff;border:0;padding:11px;font-weight:bold}
+.banner{background:#000;color:#fff;text-align:center;padding:35px 20px}
+.banner h2{font-size:25px;margin-bottom:10px}
+.banner p{font-size:13px;color:#ccc}
+footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;letter-spacing:2px}
+</style>
 </head>
-
 <body>
 
-  <!-- NEXORA COMPANY SPLASH -->
-  <section class="splash" id="companySplash">
-    <img src="./nexora-icon-512.png" alt="NEXORA Logo">
-    <h1>NEXORA</h1>
-    <p>TECHNOLOGIES</p>
-    <small>IDEAS TO IMPACT</small>
-  </section>
+<header>
+<div class="logo">NEXORA</div>
+<span>STYLE</span>
+</header>
 
-  <!-- SHOP SPLASH -->
-  <section class="splash" id="shopSplash">
-    <h1>NEXORA STYLE</h1>
-    <p>WEAR BETTER • LIVE BOLDER</p>
-  </section>
+<div class="hero">
+<small>NEW COLLECTION</small>
+<h1>WEAR BETTER.<br>LIVE BOLDER.</h1>
+<p>Style that speaks without saying a word.</p>
+<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">EXPLORE COLLECTION</button>
+</div>
 
-  <!-- MAIN APP -->
-  <main id="app" style="display:none">
+<section>
+<div class="heading">SHOP BY CATEGORY</div>
+<div class="categories">
+<div class="category">MEN</div>
+<div class="category">WOMEN</div>
+<div class="category">SHIRTS</div>
+<div class="category">T-SHIRTS</div>
+<div class="category">JEANS</div>
+</div>
+</section>
 
-    <header>
-      <h2>NEXORA STYLE</h2>
-      <p>WEAR BETTER • LIVE BOLDER</p>
-    </header>
+<section id="shop">
+<div class="heading">TRENDING COLLECTION</div>
+<div class="products">
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#offers">Offers</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="T-shirt">
+<h3>Classic White T-Shirt</h3>
+<div class="price">₹599</div>
+<button onclick="order('Classic White T-Shirt','599')">ORDER NOW</button>
+</div>
 
-    <section class="hero" id="home">
-      <h1>Upgrade Your Style.</h1>
-      <p>Discover the latest in men's fashion.</p>
-    </section>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600" alt="Black T-shirt">
+<h3>Premium Black T-Shirt</h3>
+<div class="price">₹699</div>
+<button onclick="order('Premium Black T-Shirt','699')">ORDER NOW</button>
+</div>
 
-    <section class="products" id="shop">
-      <h2>Featured Collection</h2>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?w=600" alt="Shirt">
+<h3>Casual Shirt</h3>
+<div class="price">₹999</div>
+<button onclick="order('Casual Shirt','999')">ORDER NOW</button>
+</div>
 
-      <div class="grid">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600" alt="Jeans">
+<h3>Classic Denim Jeans</h3>
+<div class="price">₹1,299</div>
+<button onclick="order('Classic Denim Jeans','1299')">ORDER NOW</button>
+</div>
 
-        <div class="item">
-          <div class="photo">👕</div>
-          <h3>Classic T-Shirt</h3>
-          <p>₹499</p>
-          <button onclick="order('Classic T-Shirt',499)">Order</button>
-        </div>
+</div>
+</section>
 
-        <div class="item">
-          <div class="photo">👔</div>
-          <h3>Premium Shirt</h3>
-          <p>₹899</p>
-          <button onclick="order('Premium Shirt',899)">Order</button>
-        </div>
+<div class="banner">
+<h2>YOUR STYLE. YOUR IDENTITY.</h2>
+<p>Discover the collection. Upgrade your look.</p>
+</div>
 
-        <div class="item">
-          <div class="photo">🧥</div>
-          <h3>Casual Jacket</h3>
-          <p>₹1499</p>
-          <button onclick="order('Casual Jacket',1499)">Order</button>
-        </div>
+<footer>
+NEXORA STYLE<br><br>
+WEAR BETTER • LIVE BOLDER<br><br>
+POWERED BY NEXORA TECHNOLOGIES
+</footer>
 
-        <div class="item">
-          <div class="photo">👖</div>
-          <h3>Denim Jeans</h3>
-          <p>₹999</p>
-          <button onclick="order('Denim Jeans',999)">Order</button>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="products" id="offers">
-      <h2>Special Offers</h2>
-      <p>New collections coming soon.</p>
-    </section>
-
-    <footer id="contact">
-      <h3>Contact NEXORA STYLE</h3>
-      <p>Demo Store • Contact details coming soon</p>
-    </footer>
-
-  </main>
-
-  <script>
-    function order(product, price) {
-      alert(
-        product + " - ₹" + price +
-        "\nDemo order. Shop WhatsApp number will be added later."
-      );
-    }
-
-    // Company splash: 1.5 seconds
-    setTimeout(() => {
-      document.getElementById("companySplash").style.display = "none";
-      document.getElementById("shopSplash").style.display = "flex";
-    }, 1500);
-
-    // Shop splash: next 1.5 seconds
-    setTimeout(() => {
-      document.getElementById("shopSplash").style.display = "none";
-      document.getElementById("app").style.display = "block";
-    }, 3000);
-
-    // Service worker registration
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js")
-          .catch(error =>
-            console.error("Service worker error:", error)
-          );
-      });
-    }
-  </script>
+<script>
+function order(name,price){
+const phone="91XXXXXXXXXX";
+const message="Hello, I want to order "+name+" worth ₹"+price;
+window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(message),"_blank");
+}
+</script>
 
 </body>
   </html>
