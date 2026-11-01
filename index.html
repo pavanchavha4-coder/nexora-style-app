@@ -4,177 +4,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#080808">
 <title>NEXORA STYLE</title>
-<link rel="manifest" href="./manifest.json">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-bottom:85px}
-body{font-family:Arial,sans-serif;background:#fff;color:#111;padding-bottom:75px}
-header{background:#000;color:#fff;padding:19px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:23px;font-weight:900;letter-spacing:3px}
-header span{font-size:12px;letter-spacing:2px}
-.hero{background:#111;color:#fff;padding:55px 20px;text-align:center}
-.hero small{letter-spacing:4px;color:#bbb}
-.hero h1{font-size:36px;margin:18px 0;line-height:1.1}
-.hero p{color:#ccc;font-size:14px}
-.main-btn{margin-top:22px;background:#fff;color:#000;border:0;padding:14px 25px;font-weight:bold}
-section{padding:28px 16px}
-.heading{font-size:21px;font-weight:900;margin-bottom:18px}
-.categories{display:flex;gap:10px;overflow:auto}
-.category{background:#eee;padding:13px 18px;white-space:nowrap;font-size:13px;font-weight:bold}
-.products{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.product{border:1px solid #eee;padding-bottom:12px}
-.product img{width:100%;height:175px;object-fit:cover;background:#eee}
-.product h3{font-size:14px;margin:10px 8px 5px}
-.price{font-size:14px;font-weight:bold;margin:0 8px 10px}
-.product select{width:calc(100% - 16px);margin:0 8px 10px;padding:9px;border:1px solid #ddd;background:#fff}
-.product button,.black-btn{width:calc(100% - 16px);margin:0 8px;background:#000;color:#fff;border:0;padding:11px;font-weight:bold}
-.cart{background:#f5f5f5;padding:18px;margin:0 16px 25px}
-.cart h2{font-size:20px;margin-bottom:12px}
-.cart-item{padding:10px 0;border-bottom:1px solid #ddd;font-size:14px}
-.cart button{width:100%;padding:13px;background:#000;color:#fff;border:0;font-weight:bold;margin-top:12px}
-.remove{background:#777!important;margin-top:6px!important}
-.offer-card{background:#000;color:#fff;padding:28px 20px;text-align:center;margin-bottom:14px}
-.offer-card h2{font-size:25px;margin-bottom:10px}
-.offer-card p{font-size:14px;color:#ddd}
-.owner-card{border:1px solid #ddd;padding:25px;text-align:center}
-.owner-card h2{font-size:25px;margin-bottom:8px}
-.owner-card p{color:#666;margin-bottom:18px;font-size:14px}
-.owner-card a{display:block;text-decoration:none;background:#000;color:#fff;padding:14px;margin-top:10px;font-weight:bold}
-footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;letter-spacing:2px}
-.bottom-nav{position:fixed;bottom:0;left:0;width:100%;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(4,1fr);padding:10px 0 calc(10px + env(safe-area-inset-bottom));z-index:100}
-.bottom-nav a{text-decoration:none;color:#555;text-align:center;font-size:12px;font-weight:bold}
-.bottom-nav a span{display:block;font-size:21px;margin-bottom:4px}
-.bottom-nav a.active{color:#000}
+body{font-family:Arial,sans-serif;background:#080808;color:white;padding-bottom:75px}
+header{background:#111;padding:20px;text-align:center;border-bottom:1px solid #333}
+header h2{letter-spacing:3px}
+header p{font-size:10px;color:#aaa;margin-top:5px;letter-spacing:2px}
+.page{display:none;padding:18px}
+.page.active{display:block}
+.hero{background:linear-gradient(135deg,#333,#090909);padding:55px 20px;text-align:center;border-radius:12px;margin:15px 0}
+.hero h1{font-size:30px;letter-spacing:2px}
+.hero p{color:#bbb;margin:12px 0}
+h2.section{margin:20px 0 15px}
+.btn{background:white;color:black;border:0;padding:12px 18px;border-radius:5px;font-weight:bold;cursor:pointer}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.product{background:#151515;border:1px solid #292929;border-radius:9px;overflow:hidden;padding-bottom:12px}
+.product img{width:100%;height:155px;object-fit:cover}
+.product h3{font-size:14px;margin:10px}
+.product p{margin:0 10px 10px;color:#ddd}
+.product select{margin:0 10px 10px;padding:7px;background:#222;color:white;border:1px solid #555;width:calc(100% - 20px)}
+.product button{margin:0 10px;width:calc(100% - 20px)}
+.offer{background:#171717;border:1px solid #333;padding:22px;border-radius:10px;margin:14px 0}
+.offer h3{margin-bottom:10px}
+.owner{text-align:center;background:#171717;padding:30px 15px;border-radius:12px;margin-top:20px}
+.owner h2{margin:15px 0}
+.owner p{color:#bbb;margin:10px}
+nav{position:fixed;bottom:0;left:0;width:100%;background:#111;border-top:1px solid #333;display:flex;justify-content:space-around;padding:12px 3px;z-index:10}
+nav button{background:none;border:0;color:#aaa;font-size:12px;cursor:pointer}
+nav button.active{color:white;font-weight:bold}
+.cartbox{background:#171717;padding:15px;border-radius:10px;margin-top:25px}
+.cartitem{display:flex;justify-content:space-between;gap:8px;margin:12px 0;font-size:13px}
+.smallbtn{background:#444;color:white;border:0;padding:5px 8px;border-radius:4px}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">NEXORA</div>
-<span>STYLE</span>
+<h2>NEXORA STYLE</h2>
+<p>WEAR BETTER • LIVE BOLDER</p>
 </header>
 
-<div class="hero" id="home">
-<small>NEW COLLECTION</small>
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+<div class="hero">
 <h1>WEAR BETTER.<br>LIVE BOLDER.</h1>
-<p>Style that speaks without saying a word.</p>
-<button class="main-btn" onclick="goTo('shop')">EXPLORE COLLECTION</button>
+<p>Discover your everyday style.</p>
+<button class="btn" onclick="showPage('shop')">EXPLORE COLLECTION</button>
 </div>
-
-<section>
-<div class="heading">SHOP BY CATEGORY</div>
-<div class="categories">
-<div class="category">MEN</div>
-<div class="category">WOMEN</div>
-<div class="category">SHIRTS</div>
-<div class="category">T-SHIRTS</div>
-<div class="category">JEANS</div>
+<h2 class="section">Welcome to NEXORA STYLE</h2>
+<p style="color:#aaa;line-height:1.6">Upgrade your wardrobe with stylish and comfortable fashion. Find your look, wear your confidence.</p>
+<h2 class="section">Featured Collection</h2>
+<div class="grid">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500">
+<h3>Classic White T-Shirt</h3><p>₹599</p>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500">
+<h3>Premium Black T-Shirt</h3><p>₹699</p>
+</div>
 </div>
 </section>
 
-<section id="shop">
-<div class="heading">TRENDING COLLECTION</div>
-<div class="products">
+<!-- SHOP PAGE -->
+<section id="shop" class="page">
+<h2 class="section">OUR COLLECTION</h2>
+<p style="color:#aaa;margin-bottom:18px">Choose your favourite style.</p>
 
+<div class="grid">
 <div class="product">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="White T-shirt">
-<h3>Classic White T-Shirt</h3>
-<div class="price">₹599</div>
-<select id="size1">
-<option value="">Select Size</option>
-<option>S</option><option>M</option><option>L</option><option>XL</option>
-</select>
-<button onclick="addCart('Classic White T-Shirt',599,'size1')">ADD TO CART</button>
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500">
+<h3>Classic White T-Shirt</h3><p>₹599</p>
+<select id="size1"><option value="">Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<button class="btn" onclick="addCart('Classic White T-Shirt',599,'size1')">ADD TO CART</button>
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600" alt="Black T-shirt">
-<h3>Premium Black T-Shirt</h3>
-<div class="price">₹699</div>
-<select id="size2">
-<option value="">Select Size</option>
-<option>S</option><option>M</option><option>L</option><option>XL</option>
-</select>
-<button onclick="addCart('Premium Black T-Shirt',699,'size2')">ADD TO CART</button>
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500">
+<h3>Premium Black T-Shirt</h3><p>₹699</p>
+<select id="size2"><option value="">Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<button class="btn" onclick="addCart('Premium Black T-Shirt',699,'size2')">ADD TO CART</button>
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?w=600" alt="Casual Shirt">
-<h3>Casual Shirt</h3>
-<div class="price">₹999</div>
-<select id="size3">
-<option value="">Select Size</option>
-<option>S</option><option>M</option><option>L</option><option>XL</option>
-</select>
-<button onclick="addCart('Casual Shirt',999,'size3')">ADD TO CART</button>
+<img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500">
+<h3>Casual Shirt</h3><p>₹999</p>
+<select id="size3"><option value="">Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<button class="btn" onclick="addCart('Casual Shirt',999,'size3')">ADD TO CART</button>
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600" alt="Denim Jeans">
-<h3>Classic Denim Jeans</h3>
-<div class="price">₹1,299</div>
-<select id="size4">
-<option value="">Select Size</option>
-<option>30</option><option>32</option><option>34</option><option>36</option>
-</select>
-<button onclick="addCart('Classic Denim Jeans',1299,'size4')">ADD TO CART</button>
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=500">
+<h3>Classic Denim Jeans</h3><p>₹1299</p>
+<select id="size4"><option value="">Select Size</option><option>30</option><option>32</option><option>34</option><option>36</option></select>
+<button class="btn" onclick="addCart('Classic Denim Jeans',1299,'size4')">ADD TO CART</button>
+</div>
 </div>
 
-</div>
-</section>
-
-<div class="cart" id="cart">
-<h2>YOUR CART 🛒</h2>
+<div class="cartbox">
+<h3>YOUR CART</h3>
 <div id="cartItems">Your cart is empty.</div>
-<h3 id="total" style="margin-top:12px">Total: ₹0</h3>
-<button onclick="checkout()">CHECKOUT ON WHATSAPP</button>
-</div>
-
-<section id="offers">
-<div class="heading">SPECIAL OFFERS</div>
-<div class="offer-card">
-<h2>EXCLUSIVE STYLE</h2>
-<p>Discover your new favourite look.</p>
-</div>
-<div class="offer-card">
-<h2>NEW COLLECTION</h2>
-<p>Upgrade your wardrobe with NEXORA STYLE.</p>
+<h3 id="total">Total: ₹0</h3>
+<button class="btn" style="width:100%;margin-top:15px" onclick="checkout()">WHATSAPP CHECKOUT</button>
 </div>
 </section>
 
-<section id="owner">
-<div class="heading">CONTACT OWNER</div>
-<div class="owner-card">
+<!-- OFFERS PAGE -->
+<section id="offers" class="page">
+<h2 class="section">SPECIAL OFFERS</h2>
+<div class="offer">
+<h3>NEW COLLECTION</h3>
+<p style="color:#bbb">Discover our latest fashion collection.</p>
+</div>
+<div class="offer">
+<h3>STYLE YOURSELF</h3>
+<p style="color:#bbb">Find your perfect everyday look with NEXORA STYLE.</p>
+</div>
+<p style="color:#888;font-size:12px;margin-top:15px">Offers and discounts are subject to store confirmation.</p>
+</section>
+
+<!-- OWNER PAGE -->
+<section id="owner" class="page">
+<h2 class="section">CONTACT OWNER</h2>
+<div class="owner">
+<div style="font-size:45px">👤</div>
 <h2>Pavan Chavhan</h2>
 <p>Owner – NEXORA STYLE</p>
-<a id="ownerWhatsApp" href="#" target="_blank">WHATSAPP OWNER</a>
-<a id="ownerCall" href="#">CALL NOW</a>
+<p>For orders and enquiries, contact us directly.</p>
+<button class="btn" style="margin:8px" onclick="ownerWhatsApp()">WHATSAPP</button>
+<button class="btn" style="margin:8px" onclick="ownerCall()">CALL NOW</button>
 </div>
 </section>
 
-<footer>
-NEXORA STYLE<br><br>
-WEAR BETTER • LIVE BOLDER<br><br>
-POWERED BY NEXORA TECHNOLOGIES
-</footer>
-
-<nav class="bottom-nav">
-<a href="#home" class="active" onclick="setActive(this)">
-<span>⌂</span>Home
-</a>
-<a href="#shop" onclick="setActive(this)">
-<span>▣</span>Shop
-</a>
-<a href="#offers" onclick="setActive(this)">
-<span>％</span>Offers
-</a>
-<a href="#owner" onclick="setActive(this)">
-<span>♙</span>Owner
-</a>
+<nav>
+<button class="active" onclick="showPage('home',this)">⌂<br>Home</button>
+<button onclick="showPage('shop',this)">▣<br>Shop</button>
+<button onclick="showPage('offers',this)">★<br>Offers</button>
+<button onclick="showPage('owner',this)">●<br>Owner</button>
 </nav>
 
 <script>
@@ -183,77 +153,67 @@ const phone="919209039080";
 
 let cart=[];
 
-document.getElementById("ownerWhatsApp").href=
-"https://wa.me/"+phone;
+function showPage(page,button){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(page).classList.add('active');
 
-document.getElementById("ownerCall").href=
-"tel:+"+phone;
-
-function goTo(id){
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+if(button){button.classList.add('active');}
+else{
+const buttons=document.querySelectorAll('nav button');
+const pages=['home','shop','offers','owner'];
+buttons[pages.indexOf(page)].classList.add('active');
 }
-
-function setActive(element){
-document.querySelectorAll(".bottom-nav a").forEach(a=>a.classList.remove("active"));
-element.classList.add("active");
+window.scrollTo(0,0);
 }
 
 function addCart(name,price,sizeId){
 const size=document.getElementById(sizeId).value;
-if(!size){
-alert("Please select a size first!");
-return;
-}
+if(!size){alert("Please select size first.");return;}
 cart.push({name,price,size});
-showCart();
+renderCart();
 alert("Product added to cart!");
 }
 
-function showCart(){
-const box=document.getElementById("cartItems");
-let total=0;
-
-if(cart.length===0){
-box.innerHTML="Your cart is empty.";
-}else{
-box.innerHTML="";
-cart.forEach((item,index)=>{
-total+=item.price;
-box.innerHTML+=`
-<div class="cart-item">
-${item.name} | Size: ${item.size} | ₹${item.price}
-<button class="remove" onclick="removeItem(${index})">REMOVE</button>
-</div>`;
-});
-}
-
-document.getElementById("total").innerText="Total: ₹"+total;
-}
-
-function removeItem(index){
+function removeCart(index){
 cart.splice(index,1);
-showCart();
+renderCart();
+}
+
+function renderCart(){
+const box=document.getElementById('cartItems');
+if(cart.length===0){box.innerHTML="Your cart is empty.";}
+else{
+box.innerHTML=cart.map((item,index)=>
+`<div class="cartitem">
+<span>${item.name} (${item.size}) - ₹${item.price}</span>
+<button class="smallbtn" onclick="removeCart(${index})">Remove</button>
+</div>`).join('');
+}
+const total=cart.reduce((sum,item)=>sum+item.price,0);
+document.getElementById('total').innerText="Total: ₹"+total;
 }
 
 function checkout(){
-if(cart.length===0){
-alert("Your cart is empty!");
-return;
+if(cart.length===0){alert("Your cart is empty!");return;}
+const total=cart.reduce((sum,item)=>sum+item.price,0);
+let message="Hello, I want to order:%0A";
+cart.forEach(item=>{
+message+=`%0A${item.name} - Size: ${item.size} - ₹${item.price}`;
+});
+message+=`%0A%0ATotal: ₹${total}`;
+window.open("https://wa.me/"+phone+"?text="+message,"_blank");
 }
 
-let message="Hello, I want to place an order:\n";
-let total=0;
+function ownerWhatsApp(){
+window.open("https://wa.me/"+phone,"_blank");
+}
 
-cart.forEach(item=>{
-message+="\n"+item.name+" | Size: "+item.size+" | ₹"+item.price;
-total+=item.price;
-});
-
-message+="\n\nTotal: ₹"+total;
-window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(message),"_blank");
+function ownerCall(){
+window.location.href="tel:+"+phone;
 }
 </script>
 
 </body>
-                           </html>
+  </html>
   
