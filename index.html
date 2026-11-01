@@ -10,16 +10,17 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#fff;color:#111}
-header{background:#000;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center}
+html{scroll-behavior:smooth;scroll-padding-bottom:85px}
+body{font-family:Arial,sans-serif;background:#fff;color:#111;padding-bottom:75px}
+header{background:#000;color:#fff;padding:19px;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:23px;font-weight:900;letter-spacing:3px}
 header span{font-size:12px;letter-spacing:2px}
-.hero{background:#111;color:#fff;padding:50px 20px;text-align:center}
+.hero{background:#111;color:#fff;padding:55px 20px;text-align:center}
 .hero small{letter-spacing:4px;color:#bbb}
 .hero h1{font-size:36px;margin:18px 0;line-height:1.1}
 .hero p{color:#ccc;font-size:14px}
-.hero button{margin-top:22px;background:#fff;color:#000;border:0;padding:14px 25px;font-weight:bold}
-section{padding:25px 16px}
+.main-btn{margin-top:22px;background:#fff;color:#000;border:0;padding:14px 25px;font-weight:bold}
+section{padding:28px 16px}
 .heading{font-size:21px;font-weight:900;margin-bottom:18px}
 .categories{display:flex;gap:10px;overflow:auto}
 .category{background:#eee;padding:13px 18px;white-space:nowrap;font-size:13px;font-weight:bold}
@@ -29,16 +30,24 @@ section{padding:25px 16px}
 .product h3{font-size:14px;margin:10px 8px 5px}
 .price{font-size:14px;font-weight:bold;margin:0 8px 10px}
 .product select{width:calc(100% - 16px);margin:0 8px 10px;padding:9px;border:1px solid #ddd;background:#fff}
-.product button{width:calc(100% - 16px);margin:0 8px;background:#000;color:#fff;border:0;padding:11px;font-weight:bold}
+.product button,.black-btn{width:calc(100% - 16px);margin:0 8px;background:#000;color:#fff;border:0;padding:11px;font-weight:bold}
 .cart{background:#f5f5f5;padding:18px;margin:0 16px 25px}
 .cart h2{font-size:20px;margin-bottom:12px}
 .cart-item{padding:10px 0;border-bottom:1px solid #ddd;font-size:14px}
 .cart button{width:100%;padding:13px;background:#000;color:#fff;border:0;font-weight:bold;margin-top:12px}
 .remove{background:#777!important;margin-top:6px!important}
-.banner{background:#000;color:#fff;text-align:center;padding:35px 20px}
-.banner h2{font-size:23px;margin-bottom:10px}
-.banner p{font-size:13px;color:#ccc}
+.offer-card{background:#000;color:#fff;padding:28px 20px;text-align:center;margin-bottom:14px}
+.offer-card h2{font-size:25px;margin-bottom:10px}
+.offer-card p{font-size:14px;color:#ddd}
+.owner-card{border:1px solid #ddd;padding:25px;text-align:center}
+.owner-card h2{font-size:25px;margin-bottom:8px}
+.owner-card p{color:#666;margin-bottom:18px;font-size:14px}
+.owner-card a{display:block;text-decoration:none;background:#000;color:#fff;padding:14px;margin-top:10px;font-weight:bold}
 footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;letter-spacing:2px}
+.bottom-nav{position:fixed;bottom:0;left:0;width:100%;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(4,1fr);padding:10px 0 calc(10px + env(safe-area-inset-bottom));z-index:100}
+.bottom-nav a{text-decoration:none;color:#555;text-align:center;font-size:12px;font-weight:bold}
+.bottom-nav a span{display:block;font-size:21px;margin-bottom:4px}
+.bottom-nav a.active{color:#000}
 </style>
 </head>
 
@@ -49,11 +58,11 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;
 <span>STYLE</span>
 </header>
 
-<div class="hero">
+<div class="hero" id="home">
 <small>NEW COLLECTION</small>
 <h1>WEAR BETTER.<br>LIVE BOLDER.</h1>
 <p>Style that speaks without saying a word.</p>
-<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">EXPLORE COLLECTION</button>
+<button class="main-btn" onclick="goTo('shop')">EXPLORE COLLECTION</button>
 </div>
 
 <section>
@@ -94,7 +103,7 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?w=600" alt="Shirt">
+<img src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?w=600" alt="Casual Shirt">
 <h3>Casual Shirt</h3>
 <div class="price">₹999</div>
 <select id="size3">
@@ -105,7 +114,7 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600" alt="Jeans">
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600" alt="Denim Jeans">
 <h3>Classic Denim Jeans</h3>
 <div class="price">₹1,299</div>
 <select id="size4">
@@ -125,10 +134,27 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:12px;
 <button onclick="checkout()">CHECKOUT ON WHATSAPP</button>
 </div>
 
-<div class="banner">
-<h2>YOUR STYLE. YOUR IDENTITY.</h2>
-<p>Discover the collection. Upgrade your look.</p>
+<section id="offers">
+<div class="heading">SPECIAL OFFERS</div>
+<div class="offer-card">
+<h2>EXCLUSIVE STYLE</h2>
+<p>Discover your new favourite look.</p>
 </div>
+<div class="offer-card">
+<h2>NEW COLLECTION</h2>
+<p>Upgrade your wardrobe with NEXORA STYLE.</p>
+</div>
+</section>
+
+<section id="owner">
+<div class="heading">CONTACT OWNER</div>
+<div class="owner-card">
+<h2>Pavan Chavhan</h2>
+<p>Owner – NEXORA STYLE</p>
+<a id="ownerWhatsApp" href="#" target="_blank">WHATSAPP OWNER</a>
+<a id="ownerCall" href="#">CALL NOW</a>
+</div>
+</section>
 
 <footer>
 NEXORA STYLE<br><br>
@@ -136,19 +162,49 @@ WEAR BETTER • LIVE BOLDER<br><br>
 POWERED BY NEXORA TECHNOLOGIES
 </footer>
 
+<nav class="bottom-nav">
+<a href="#home" class="active" onclick="setActive(this)">
+<span>⌂</span>Home
+</a>
+<a href="#shop" onclick="setActive(this)">
+<span>▣</span>Shop
+</a>
+<a href="#offers" onclick="setActive(this)">
+<span>％</span>Offers
+</a>
+<a href="#owner" onclick="setActive(this)">
+<span>♙</span>Owner
+</a>
+</nav>
+
 <script>
-const phone="919209039080"; // APNA WHATSAPP NUMBER DALO
+// APNA WHATSAPP NUMBER 91 KE SAATH DALO
+const phone="919209039080";
+
 let cart=[];
+
+document.getElementById("ownerWhatsApp").href=
+"https://wa.me/"+phone;
+
+document.getElementById("ownerCall").href=
+"tel:+"+phone;
+
+function goTo(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function setActive(element){
+document.querySelectorAll(".bottom-nav a").forEach(a=>a.classList.remove("active"));
+element.classList.add("active");
+}
 
 function addCart(name,price,sizeId){
 const size=document.getElementById(sizeId).value;
-
 if(!size){
 alert("Please select a size first!");
 return;
 }
-
-cart.push({name:name,price:price,size:size});
+cart.push({name,price,size});
 showCart();
 alert("Product added to cart!");
 }
@@ -185,18 +241,19 @@ alert("Your cart is empty!");
 return;
 }
 
-let message="Hello, I want to place an order:%0A";
+let message="Hello, I want to place an order:\n";
 let total=0;
 
 cart.forEach(item=>{
-message+="%0A"+item.name+" | Size: "+item.size+" | ₹"+item.price;
+message+="\n"+item.name+" | Size: "+item.size+" | ₹"+item.price;
 total+=item.price;
 });
 
-message+="%0A%0ATotal: ₹"+total;
+message+="\n\nTotal: ₹"+total;
 window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(message),"_blank");
 }
 </script>
 
 </body>
-</html>
+                           </html>
+  
