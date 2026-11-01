@@ -5,39 +5,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080808">
+<meta name="description" content="NEXORA STYLE - Wear Better, Live Bolder">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./nexora-icon-192-1.png">
 <title>NEXORA STYLE</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#080808;color:white;padding-bottom:75px}
-header{background:#111;padding:20px;text-align:center;border-bottom:1px solid #333}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,sans-serif;
+background:#080808;color:white;
+padding-bottom:80px
+}
+header{
+background:#111;padding:18px;
+text-align:center;border-bottom:1px solid #333;
+position:sticky;top:0;z-index:5
+}
 header h2{letter-spacing:3px}
 header p{font-size:10px;color:#aaa;margin-top:5px;letter-spacing:2px}
-.page{display:none;padding:18px}
+#installBtn{
+display:none;background:white;color:black;
+border:0;padding:9px 15px;border-radius:5px;
+font-weight:bold;margin-top:12px
+}
+.page{display:none;padding:18px;min-height:75vh}
 .page.active{display:block}
-.hero{background:linear-gradient(135deg,#333,#090909);padding:55px 20px;text-align:center;border-radius:12px;margin:15px 0}
+.hero{
+background:linear-gradient(135deg,#333,#090909);
+padding:55px 20px;text-align:center;
+border-radius:12px;margin:15px 0
+}
 .hero h1{font-size:30px;letter-spacing:2px}
 .hero p{color:#bbb;margin:12px 0}
 h2.section{margin:20px 0 15px}
-.btn{background:white;color:black;border:0;padding:12px 18px;border-radius:5px;font-weight:bold;cursor:pointer}
+.btn{
+background:white;color:black;border:0;
+padding:12px 18px;border-radius:5px;
+font-weight:bold;cursor:pointer
+}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.product{background:#151515;border:1px solid #292929;border-radius:9px;overflow:hidden;padding-bottom:12px}
+.product{
+background:#151515;border:1px solid #292929;
+border-radius:9px;overflow:hidden;padding-bottom:12px
+}
 .product img{width:100%;height:155px;object-fit:cover}
 .product h3{font-size:14px;margin:10px}
 .product p{margin:0 10px 10px;color:#ddd}
-.product select{margin:0 10px 10px;padding:7px;background:#222;color:white;border:1px solid #555;width:calc(100% - 20px)}
+.product select{
+margin:0 10px 10px;padding:7px;
+background:#222;color:white;border:1px solid #555;
+width:calc(100% - 20px)
+}
 .product button{margin:0 10px;width:calc(100% - 20px)}
-.offer{background:#171717;border:1px solid #333;padding:22px;border-radius:10px;margin:14px 0}
+.offer{
+background:#171717;border:1px solid #333;
+padding:22px;border-radius:10px;margin:14px 0
+}
 .offer h3{margin-bottom:10px}
-.owner{text-align:center;background:#171717;padding:30px 15px;border-radius:12px;margin-top:20px}
+.owner{
+text-align:center;background:#171717;
+padding:30px 15px;border-radius:12px;margin-top:20px
+}
 .owner h2{margin:15px 0}
 .owner p{color:#bbb;margin:10px}
-nav{position:fixed;bottom:0;left:0;width:100%;background:#111;border-top:1px solid #333;display:flex;justify-content:space-around;padding:12px 3px;z-index:10}
-nav button{background:none;border:0;color:#aaa;font-size:12px;cursor:pointer}
+nav{
+position:fixed;bottom:0;left:0;width:100%;
+background:#111;border-top:1px solid #333;
+display:flex;justify-content:space-around;
+padding:12px 3px;z-index:10
+}
+nav button{
+background:none;border:0;color:#aaa;
+font-size:12px;cursor:pointer
+}
 nav button.active{color:white;font-weight:bold}
 .cartbox{background:#171717;padding:15px;border-radius:10px;margin-top:25px}
-.cartitem{display:flex;justify-content:space-between;gap:8px;margin:12px 0;font-size:13px}
-.smallbtn{background:#444;color:white;border:0;padding:5px 8px;border-radius:4px}
+.cartitem{
+display:flex;justify-content:space-between;
+align-items:center;gap:8px;margin:12px 0;font-size:13px
+}
+.smallbtn{background:#444;color:white;border:0;padding:6px 9px;border-radius:4px}
+footer{text-align:center;color:#777;font-size:11px;padding:20px}
 </style>
 </head>
 
@@ -46,61 +96,85 @@ nav button.active{color:white;font-weight:bold}
 <header>
 <h2>NEXORA STYLE</h2>
 <p>WEAR BETTER • LIVE BOLDER</p>
+<button id="installBtn">INSTALL APP</button>
 </header>
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 <section id="home" class="page active">
 <div class="hero">
 <h1>WEAR BETTER.<br>LIVE BOLDER.</h1>
 <p>Discover your everyday style.</p>
 <button class="btn" onclick="showPage('shop')">EXPLORE COLLECTION</button>
 </div>
+
 <h2 class="section">Welcome to NEXORA STYLE</h2>
-<p style="color:#aaa;line-height:1.6">Upgrade your wardrobe with stylish and comfortable fashion. Find your look, wear your confidence.</p>
+<p style="color:#aaa;line-height:1.6">
+Upgrade your wardrobe with stylish and comfortable fashion.
+Find your look, wear your confidence.
+</p>
+
 <h2 class="section">Featured Collection</h2>
 <div class="grid">
 <div class="product">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500">
-<h3>Classic White T-Shirt</h3><p>₹599</p>
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" alt="White T-shirt">
+<h3>Classic White T-Shirt</h3>
+<p>₹599</p>
 </div>
 <div class="product">
-<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500">
-<h3>Premium Black T-Shirt</h3><p>₹699</p>
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500" alt="Black T-shirt">
+<h3>Premium Black T-Shirt</h3>
+<p>₹699</p>
 </div>
 </div>
 </section>
 
-<!-- SHOP PAGE -->
+<!-- SHOP -->
 <section id="shop" class="page">
 <h2 class="section">OUR COLLECTION</h2>
 <p style="color:#aaa;margin-bottom:18px">Choose your favourite style.</p>
 
 <div class="grid">
 <div class="product">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500">
-<h3>Classic White T-Shirt</h3><p>₹599</p>
-<select id="size1"><option value="">Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" alt="White T-shirt">
+<h3>Classic White T-Shirt</h3>
+<p>₹599</p>
+<select id="size1">
+<option value="">Select Size</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
+</select>
 <button class="btn" onclick="addCart('Classic White T-Shirt',599,'size1')">ADD TO CART</button>
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500">
-<h3>Premium Black T-Shirt</h3><p>₹699</p>
-<select id="size2"><option value="">Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500" alt="Black T-shirt">
+<h3>Premium Black T-Shirt</h3>
+<p>₹699</p>
+<select id="size2">
+<option value="">Select Size</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
+</select>
 <button class="btn" onclick="addCart('Premium Black T-Shirt',699,'size2')">ADD TO CART</button>
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500">
-<h3>Casual Shirt</h3><p>₹999</p>
-<select id="size3"><option value="">Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500" alt="Casual Shirt">
+<h3>Casual Shirt</h3>
+<p>₹999</p>
+<select id="size3">
+<option value="">Select Size</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
+</select>
 <button class="btn" onclick="addCart('Casual Shirt',999,'size3')">ADD TO CART</button>
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=500">
-<h3>Classic Denim Jeans</h3><p>₹1299</p>
-<select id="size4"><option value="">Select Size</option><option>30</option><option>32</option><option>34</option><option>36</option></select>
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=500" alt="Denim Jeans">
+<h3>Classic Denim Jeans</h3>
+<p>₹1299</p>
+<select id="size4">
+<option value="">Select Size</option>
+<option>30</option><option>32</option><option>34</option><option>36</option>
+</select>
 <button class="btn" onclick="addCart('Classic Denim Jeans',1299,'size4')">ADD TO CART</button>
 </div>
 </div>
@@ -108,26 +182,31 @@ nav button.active{color:white;font-weight:bold}
 <div class="cartbox">
 <h3>YOUR CART</h3>
 <div id="cartItems">Your cart is empty.</div>
-<h3 id="total">Total: ₹0</h3>
+<h3 id="total" style="margin-top:15px">Total: ₹0</h3>
 <button class="btn" style="width:100%;margin-top:15px" onclick="checkout()">WHATSAPP CHECKOUT</button>
 </div>
 </section>
 
-<!-- OFFERS PAGE -->
+<!-- OFFERS -->
 <section id="offers" class="page">
 <h2 class="section">SPECIAL OFFERS</h2>
+
 <div class="offer">
 <h3>NEW COLLECTION</h3>
 <p style="color:#bbb">Discover our latest fashion collection.</p>
 </div>
+
 <div class="offer">
 <h3>STYLE YOURSELF</h3>
 <p style="color:#bbb">Find your perfect everyday look with NEXORA STYLE.</p>
 </div>
-<p style="color:#888;font-size:12px;margin-top:15px">Offers and discounts are subject to store confirmation.</p>
+
+<p style="color:#888;font-size:12px;margin-top:15px">
+Offers and discounts are subject to store confirmation.
+</p>
 </section>
 
-<!-- OWNER PAGE -->
+<!-- OWNER -->
 <section id="owner" class="page">
 <h2 class="section">CONTACT OWNER</h2>
 <div class="owner">
@@ -147,6 +226,8 @@ nav button.active{color:white;font-weight:bold}
 <button onclick="showPage('owner',this)">●<br>Owner</button>
 </nav>
 
+<footer>© NEXORA STYLE | Powered by NEXORA TECHNOLOGIES</footer>
+
 <script>
 // APNA WHATSAPP NUMBER 91 KE SAATH DALO
 const phone="919209039080";
@@ -158,11 +239,12 @@ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById(page).classList.add('active');
 
 document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-if(button){button.classList.add('active');}
-else{
-const buttons=document.querySelectorAll('nav button');
+
+if(button){
+button.classList.add('active');
+}else{
 const pages=['home','shop','offers','owner'];
-buttons[pages.indexOf(page)].classList.add('active');
+document.querySelectorAll('nav button')[pages.indexOf(page)].classList.add('active');
 }
 window.scrollTo(0,0);
 }
@@ -182,27 +264,34 @@ renderCart();
 
 function renderCart(){
 const box=document.getElementById('cartItems');
-if(cart.length===0){box.innerHTML="Your cart is empty.";}
-else{
+
+if(cart.length===0){
+box.innerHTML="Your cart is empty.";
+}else{
 box.innerHTML=cart.map((item,index)=>
 `<div class="cartitem">
 <span>${item.name} (${item.size}) - ₹${item.price}</span>
 <button class="smallbtn" onclick="removeCart(${index})">Remove</button>
 </div>`).join('');
 }
+
 const total=cart.reduce((sum,item)=>sum+item.price,0);
 document.getElementById('total').innerText="Total: ₹"+total;
 }
 
 function checkout(){
 if(cart.length===0){alert("Your cart is empty!");return;}
+
 const total=cart.reduce((sum,item)=>sum+item.price,0);
-let message="Hello, I want to order:%0A";
+let message="Hello, I want to order:\n";
+
 cart.forEach(item=>{
-message+=`%0A${item.name} - Size: ${item.size} - ₹${item.price}`;
+message+=`\n${item.name} - Size: ${item.size} - ₹${item.price}`;
 });
-message+=`%0A%0ATotal: ₹${total}`;
-window.open("https://wa.me/"+phone+"?text="+message,"_blank");
+
+message+=`\n\nTotal: ₹${total}`;
+
+window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(message),"_blank");
 }
 
 function ownerWhatsApp(){
@@ -212,6 +301,36 @@ window.open("https://wa.me/"+phone,"_blank");
 function ownerCall(){
 window.location.href="tel:+"+phone;
 }
+
+// PWA SERVICE WORKER
+if("serviceWorker" in navigator){
+window.addEventListener("load",()=>{
+navigator.serviceWorker.register("./service-worker.js")
+.catch(error=>console.log("Service Worker:",error));
+});
+}
+
+// INSTALL APP BUTTON
+let deferredPrompt;
+const installBtn=document.getElementById("installBtn");
+
+window.addEventListener("beforeinstallprompt",(event)=>{
+event.preventDefault();
+deferredPrompt=event;
+installBtn.style.display="inline-block";
+});
+
+installBtn.addEventListener("click",async()=>{
+if(!deferredPrompt)return;
+deferredPrompt.prompt();
+await deferredPrompt.userChoice;
+deferredPrompt=null;
+installBtn.style.display="none";
+});
+
+window.addEventListener("appinstalled",()=>{
+installBtn.style.display="none";
+});
 </script>
 
 </body>
